@@ -23,9 +23,9 @@ client.login(process.env.BOT_TOKEN)
 client.on('message', message => {
 
     if(message.content.includes(`${process.env.SECRET_WORD}`)=== true) {
-            message.channel.send('Go donate a dollar')
-
+        message.channel.send('Thats the nono word, go pay a dollar ')
     }
+
     if(!message.content.startsWith(prefix) || message.author.bot) return;
 
     let args = message.content.substring(prefix.length).split(" ")
@@ -33,26 +33,17 @@ client.on('message', message => {
     if(command === 'help') client.commands.get('help').execute(message, args, Discord)
     else if(command === 'purge') client.commands.get('purge').execute(message, args)
     else if (command === 'play') client.commands.get('play').execute(message, args, client, Discord)
+    else if (command ==='command2') message.channel.send('hi')
     else message.channel.send("That's not a command :neutral_face:. Use the command `%help` to see what i can do")
-    
-
-    console.log(args[0])
 
 
 })
+
+
+
 
 
 // Everything below is just for testing to make sure everything is online
 client.once('ready', ()=> {
     console.log('Roycheese is online')
 })
-
-app.get('/', (req, res)=> {
-    console.log('Container works')
-    res.send("Hello this is a test")
-})
-
-app.listen(PORT, () => {
-    console.log("Express works")
-})
-
