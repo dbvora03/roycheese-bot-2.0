@@ -34,6 +34,7 @@ client.on('message', message => {
     else if(command === 'purge') client.commands.get('purge').execute(message, args)
     else if (command === 'play') client.commands.get('play').execute(message, args, client, Discord)
     else if (command ==='command2') message.channel.send('hi')
+    else if (command ==='8ball') client.commands.get('8ball').execute(message, args, Discord)
     else message.channel.send("That's not a command :neutral_face:. Use the command `%help` to see what i can do")
 
 
