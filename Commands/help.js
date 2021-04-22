@@ -8,7 +8,12 @@ module.exports = {
                                     .setDescription('Here are a list of commands I can do:')
                                     .addFields(
                                         {name: '`%purge <amount>`', value: 'Clears <amount> most recent messages'},
-                                        {name: '`command2`', value: 'This commands does abc'}
+                                        {name: '`%8ball <question>`', value: 'Predicts the outcome of a message'},
+                                        {name: '`%image <image-name>`', value: 'Finds an image from the internet'},
+                                        {name: '`%spongebob <caption>`', value: 'Creates the mocking spongebob meme'},
+                                        {name: '`%monkeymeme <caption>`', value: 'Creates orangutan meme'},
+                                        {name: '`%monkey`', value: 'Sends random monkey'}
+
                                     )
                                     .setImage('https://ofis.uwaterloo.ca/profile/sssaini.png')
                                     .setFooter('xoxo Roycheese bot')

@@ -13,6 +13,10 @@ const prefix = '%'
 
 const fs = require('fs')
 client.commands = new Discord.Collection();
+client.events = new Discord.Collection();
+
+
+client.login(process.env.BOT_TOKEN)
 
 const commandFiles = fs.readdirSync('./Commands/').filter(file => file.endsWith('.js'))
 
@@ -20,8 +24,6 @@ for (const file of commandFiles) {
     const command = require(`./Commands/${file}`)
     client.commands.set(command.name, command)
 }
-
-client.login(process.env.BOT_TOKEN)
 
 client.on('message', message => {
 
@@ -38,6 +40,12 @@ client.on('message', message => {
     else if (command === 'play') client.commands.get('play').execute(message, args, client, Discord)
     else if (command ==='command2') message.channel.send('hi')
     else if (command ==='8ball') client.commands.get('8ball').execute(message, args, Discord)
+    else if (command ==='image') client.commands.get('image').execute(client, message, args)
+    else if (command ==='spongebob') client.commands.get('spongebob').execute(client, message, args)
+    else if (command ==='monkeymeme') client.commands.get('monkeymeme').execute(client, message, args)
+    else if (command ==='monkey') client.commands.get('monkey').execute(client, message, args)
+
+
     else message.channel.send("That's not a command :neutral_face:. Use the command `%help` to see what i can do")
 
 

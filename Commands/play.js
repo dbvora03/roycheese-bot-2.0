@@ -1,11 +1,6 @@
 const ytdl = require('ytdl-core')
 const ytSearch = require('yt-search')
-const { execute } = require('./ping')
-
 const queue = new Map();
-
-
-
 
 module.exports = {
     name: 'play',
