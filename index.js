@@ -2,6 +2,9 @@ const express = require('express')
 const Discord = require('discord.js')
 const app = express()
 
+const covidcounter1 = require('./counters/covid-counter1')
+const covidcounter2 = require('./counters/covid-counter2')
+
 require('dotenv').config()
 
 const PORT = process.env.PORT || 1738
@@ -22,7 +25,7 @@ client.login(process.env.BOT_TOKEN)
 
 client.on('message', message => {
 
-    if(message.content.includes(`${process.env.SECRET_WORD}`)=== true) {
+    if(message.content.toLowerCase().includes(`${process.env.SECRET_WORD}`) === true || message.content.toLowerCase().includes(`${process.env.SECRET_WORD2}`)=== true) {
         message.channel.send('Thats the nono word, go pay a dollar ')
     }
 
@@ -40,11 +43,10 @@ client.on('message', message => {
 
 })
 
-
-
-
-
 // Everything below is just for testing to make sure everything is online
 client.once('ready', ()=> {
+    covidcounter1(client)
+    covidcounter2(client)
+
     console.log('Roycheese is online')
 })

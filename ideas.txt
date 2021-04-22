@@ -1,9 +1,7 @@
 - music
 - even manager
 - nono word counter 
-- 8ball
 - Meme bank 
 - counter channel 
 - polls
 - game announcer
-
