@@ -1,7 +1,8 @@
 const express = require('express')
 const Discord = require('discord.js')
+const mongoose = require('mongoose')
 const app = express()
-
+const fs = require('fs')
 const covidcounter1 = require('./counters/covid-counter1')
 const covidcounter2 = require('./counters/covid-counter2')
 
@@ -11,7 +12,18 @@ const PORT = process.env.PORT || 1738
 const client = new Discord.Client()
 const prefix = '%'
 
-const fs = require('fs')
+
+mongoose.connect(
+    process.env.MONGO_URI, 
+    { useNewUrlParser: true,
+    useUnifiedTopology: true
+     }).then(()=> {
+    console.log('MongoDB Connected')
+  }).catch((err)=> {
+    console.log(err)
+  })
+
+
 client.commands = new Discord.Collection();
 client.events = new Discord.Collection();
 
@@ -19,7 +31,6 @@ client.events = new Discord.Collection();
 client.login(process.env.BOT_TOKEN)
 
 const commandFiles = fs.readdirSync('./Commands/').filter(file => file.endsWith('.js'))
-
 for (const file of commandFiles) {
     const command = require(`./Commands/${file}`)
     client.commands.set(command.name, command)
@@ -44,10 +55,13 @@ client.on('message', message => {
     else if (command ==='spongebob') client.commands.get('spongebob').execute(client, message, args)
     else if (command ==='monkeymeme') client.commands.get('monkeymeme').execute(client, message, args)
     else if (command ==='monkey') client.commands.get('monkey').execute(client, message, args)
+    else if (command ==='register') client.commands.get('register').execute(client, Discord, message)
+    else if (command ==='count') client.commands.get('count').execute(client, Discord, message, args)
+    else if (command ==='dollar') client.commands.get('dollar').execute(client, Discord, message, args)
+
 
 
     else message.channel.send("That's not a command :neutral_face:. Use the command `%help` to see what i can do")
-
 
 })
 
@@ -55,6 +69,5 @@ client.on('message', message => {
 client.once('ready', ()=> {
     covidcounter1(client)
     covidcounter2(client)
-
     console.log('Roycheese is online')
 })
