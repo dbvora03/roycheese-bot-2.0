@@ -6,9 +6,6 @@ module.exports = {
     execute (client, discord, message) {
 
         ProfileModels.find({userID: message.member.id, serverID: message.member.guild.id }).then(user=> {
-            if(user) {
-                message.channel.send("You have already been added")
-            } else {
 
                 let profile = ProfileModels.create({
                     userID : message.member.id,
@@ -17,9 +14,9 @@ module.exports = {
                 })
 
                 profile.save().then(()=> {
-                    message.channel.send("You have been added to the list")
+                    message.channel.send("You have been registered on the sex offenders list")
                 });
-            }
+            
         })
     }
 }

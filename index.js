@@ -5,13 +5,13 @@ const app = express()
 const fs = require('fs')
 const covidcounter1 = require('./counters/covid-counter1')
 const covidcounter2 = require('./counters/covid-counter2')
-
+const DisTube = require('distube')
 require('dotenv').config()
 
 const PORT = process.env.PORT || 1738
 const client = new Discord.Client()
 const prefix = '%'
-
+client.DisTube = new DisTube(client, {searchSongs: false, emitNewSongOnly: true})
 
 mongoose.connect(
     process.env.MONGO_URI, 
@@ -58,6 +58,10 @@ client.on('message', message => {
     else if (command ==='register') client.commands.get('register').execute(client, Discord, message)
     else if (command ==='count') client.commands.get('count').execute(client, Discord, message, args)
     else if (command ==='dollar') client.commands.get('dollar').execute(client, Discord, message, args)
+    else if (command ==='play') client.commands.get('play').execute(message, args, client)
+    else if (command ==='skip') client.commands.get('skip').execute(message, args, client)
+    else if (command ==='stop') client.commands.get('stop').execute(message, args, client)
+    else if (command ==='queue') client.commands.get('queue').execute(message, args, client)
 
 
 

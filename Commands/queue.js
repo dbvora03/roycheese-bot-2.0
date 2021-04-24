@@ -1,18 +1,25 @@
+
+
 const DisTube = require("distube")
 const Discord = require('discord.js')
 
 module.exports = {
-    name: 'play',
-    description: 'Music bot',
+    name: 'queue',
+    description: 'queue for music bot',
     async execute(message, args, client) {
 
         if(!message.member.voice.channel) {
             return message.channel.send('Join a voice channel or something :neutral_face:')
         }
 
-        client.DisTube.play(message, args.join(" "))
+        let queue = await client.DisTube.getQueue(message)
+        console.log(queue.songs)
 
-
+        /*
+        message.channel.send('Current queue:\n' + queue.songs.map((song, id) =>
+            `**${id + 1}**. ${song.name} - \`${song.formattedDuration}\``
+        ).slice(0, 10).join("\n"));
+*/
         const newEmbed = new Discord.MessageEmbed()
         .setColor('#dd5d5d')
         .setTitle(`Now playing`)
@@ -21,5 +28,4 @@ module.exports = {
     
         message.channel.send(newEmbed)
     }
-    
 }
