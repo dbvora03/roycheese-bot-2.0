@@ -1,7 +1,7 @@
 const fs = require('fs')
 const Discord = require('discord.js')
 
-module.exports = (client, Discord, message) => {
+module.exports = (client, Discord) => {
     const command_files = fs.readdirSync('./Commands/').filter(file => file.endsWith('.js'))
 
     for(const file  of command_files) {
@@ -9,7 +9,7 @@ module.exports = (client, Discord, message) => {
         if(command.name) {
             client.commands.set(command.name, command)
         } else {
-            message.channel.send("This isn't a command")
+            continue;
         }
     }
 }

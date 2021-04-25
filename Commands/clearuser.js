@@ -1,12 +1,11 @@
-const { User } = require('discord.js');
 const mongoose = require('mongoose')
 const profile = mongoose.model("profile")
 const Discord = require("discord.js")
 
 module.exports = {
-    name: 'dollar',
+    name: 'clearuser',
     description: 'adds dollar to username',
-    help:{name: '`%dollar <@user>`', value: 'Adds a dollar to the user\'s bank'},
+    help:{name: '`%clearuser <@user>`', value: "Clears user's bank"},
 
     async execute (client, message, args, Discord) {
 
@@ -26,7 +25,7 @@ module.exports = {
 
             if(profileData) {
                 //checkpoint
-                profile.findOneAndUpdate({_id: profileData._id}, {$inc:{counts: 1}}, function(err,result) {
+                profile.findOneAndUpdate({_id: profileData._id}, {counts: 0}, function(err,result) {
                                                                                                         if (err) {
                                                                                                         console.log(err)
                                                                                                         } else {
@@ -34,7 +33,7 @@ module.exports = {
                                                                                                         }})
 
                 //^^^^^
-                message.channel.send("I've added a dollar to your balance, use `%count` or `%score` to see tallied up scores")
+                message.channel.send("I've cleared your balance")
             } else {
                 message.channel.send("This user has not been registered, tell them to use the `%register` command")
             }

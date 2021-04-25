@@ -1,5 +1,5 @@
 const { User } = require('discord.js');
-const ProfileModels = require('../Models/profileSchema')
+const profile = require('../Models/profileSchema')
 const Discord = require("discord.js")
 
 module.exports = {
@@ -17,19 +17,18 @@ module.exports = {
             parsedUser = args[0].replace("<@!", "").replace(">", "")
         }
 
-        console.log(parsedUser)
         let profileData;
         try {
 
-            let profileData = await ProfileModels.findOne({userID: parsedUser})
+            let profileData = await profile.findOne({userID: parsedUser})
+
 
             if(profileData) {
-                ProfileModels.findOne({userID: parsedUser}).then(user=> {
+                profile.findOne({userID: parsedUser}).then(user=> {
 
-                    console.log(user)
                     const newEmbed = new Discord.MessageEmbed()
                     .setColor('#dd5d5d')
-                    .setTitle(`This user owes`)
+                    .setTitle(`${user.username}`)
                     .setDescription(`$${user.counts} to charity`)
                     .setFooter('xoxo Roycheese bot')
                 

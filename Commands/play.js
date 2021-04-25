@@ -6,7 +6,6 @@ module.exports = {
     description: 'Music bot',
     help: {name: '`%play <song>`', value: 'Plays song'},
     
-
     async execute(client, message, args, Discord) {
 
         if(!message.member.voice.channel) {
@@ -14,7 +13,6 @@ module.exports = {
         }
 
         client.DisTube.play(message, args.join(" "))
-
 
         const newEmbed = new Discord.MessageEmbed()
         .setColor('#dd5d5d')
@@ -24,5 +22,4 @@ module.exports = {
     
         message.channel.send(newEmbed)
     }
-    
 }

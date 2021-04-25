@@ -2,9 +2,9 @@ const DisTube = require("distube")
 const Discord = require('discord.js')
 
 module.exports = {
-    name: 'queue',
+    name: 'song',
     description: 'queue for music bot',
-    help:{name: '`%queue`', value: 'Reveals queue'},
+    help:{name: '`%song`', value: 'Gives song info'},
 
     async execute(client, message, args, Discord) {
 
@@ -14,17 +14,18 @@ module.exports = {
 
         let queue = await client.DisTube.getQueue(message)
 
-        let queue_array = []
-
-        for(const song  of queue.songs) {
-
-            queue_array.push(`**${song.name}**, Duration:${song.formattedDuration} `)
-        }
+        let the_song = queue.songs[0]
 
         const newEmbed = new Discord.MessageEmbed()
         .setColor('#dd5d5d')
-        .setTitle(`Now playing`)
-        .setDescription(queue_array)
+        .setTitle(`Now playing:`)
+        .setTitle(`${the_song.name}`)
+        .setURL(the_song.url)
+        .setDescription(`**Queued by:** ${the_song.user.username}`)
+        .addFields(
+            {name: 'Duration', value: `${the_song.formattedDuration}`, inline: true},
+            {name: 'Views', value: `${the_song.views}`, inline: true}
+        )
         .setFooter('xoxo Roycheese bot')
     
         message.channel.send(newEmbed)

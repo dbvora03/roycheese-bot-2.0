@@ -5,7 +5,6 @@ module.exports = {
 
     async execute(client, message, args, Discord) {
 
-        console.log(args[0])
         if(!args[0]) {
             return message.reply("How many messages you want me to purge huh? You can't just expect me to know what's inside your head :neutral_face:")
         }

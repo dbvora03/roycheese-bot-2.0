@@ -11,16 +11,18 @@ const client = new Discord.Client()
 module.exports = client 
 client.DisTube = new DisTube(client, {searchSongs: false, emitNewSongOnly: true})
 
+require("./Models/profileSchema")
+
 mongoose.connect(
     process.env.MONGO_URI, 
     { useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false
      }).then(()=> {
     console.log('MongoDB Connected')
   }).catch((err)=> {
     console.log(err)
   })
-
 
 client.commands = new Discord.Collection();
 client.events = new Discord.Collection();

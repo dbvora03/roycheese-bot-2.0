@@ -4,7 +4,7 @@ const fs = require('fs')
 module.exports = {
     name: 'help',
     description: "this is the help command",
-    help: {name: '`%help`', value: ':neutral_face:'},
+    help: {name: '`%help`', value: 'cmon man :neutral_face:'},
 
     execute(client, message, args, Discord) {
 
