@@ -5,6 +5,8 @@ const Discord = require("discord.js")
 module.exports = {
     name: 'count',
     description: 'checks count',
+    help:{name: '`%count <@user>`', value: 'Reveals how much money this user owes in the "competition"'},
+
     async execute (client, message, args, Discord) {
 
         let parsedUser;

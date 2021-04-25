@@ -4,6 +4,8 @@ const Discord = require('discord.js')
 module.exports = {
     name: 'skip',
     description: 'skip',
+    help:{name: '`%skip`', value: 'Skips song'},
+
     async execute(client, message, args, Discord) {
 
         if(!message.member.voice.channel) {

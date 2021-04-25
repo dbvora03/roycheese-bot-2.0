@@ -5,6 +5,8 @@ const axios = require('axios')
 module.exports = {
     name: 'spongebob',
     description: 'mocking spongebob meme',
+    help:{name: '`%spongebob <caption>`', value: 'Creates the mocking spongebob meme'},
+
     async execute (client, message, args, Discord) {
 
         const newEmbed = new Discord.MessageEmbed()

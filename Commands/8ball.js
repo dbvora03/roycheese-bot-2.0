@@ -5,6 +5,8 @@ const replies = require('../Data/replies.json');
 module.exports = {
     name: '8ball',
     description: "this is the help command",
+    help: {name: '`%purge <amount>`', value: 'Clears <amount> most recent messages'},
+
     execute(client, message, args, Discord) {
         if(!args[0]) return message.reply("Please ask a full question");
 

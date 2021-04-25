@@ -10,6 +10,8 @@ const google = new Scraper({
 module.exports = {
     name: 'image',
     description: 'scrapes image',
+    help:{name: '`%image <image-name>`', value: 'Finds an image from the internet'},
+
     async execute (client, message, args, Discord) {
         const image_query = args.join(' ')
 

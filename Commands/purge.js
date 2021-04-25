@@ -1,6 +1,8 @@
 module.exports = {
     name: 'purge',
     description: "purge command, use responsibly",
+    help: {name: '`%purge <amount>`', value: 'Clears <amount> most recent messages'},
+
     async execute(client, message, args, Discord) {
 
         console.log(args[0])

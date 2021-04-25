@@ -4,6 +4,9 @@ const Discord = require('discord.js')
 module.exports = {
     name: 'play',
     description: 'Music bot',
+    help: {name: '`%play <song>`', value: 'Plays song'},
+    
+
     async execute(client, message, args, Discord) {
 
         if(!message.member.voice.channel) {

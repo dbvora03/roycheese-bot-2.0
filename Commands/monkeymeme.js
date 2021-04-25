@@ -5,6 +5,8 @@ const axios = require('axios')
 module.exports = {
     name: 'monkeymeme',
     description: 'monkey meme',
+    help:{name: '`%monkeymeme <caption>`', value: 'Creates orangutan meme'},
+ 
     async execute (client, message, args, Discord) {
 
         const newEmbed = new Discord.MessageEmbed()

@@ -6,6 +6,8 @@ const Discord = require('discord.js')
 module.exports = {
     name: 'queue',
     description: 'queue for music bot',
+    help:{name: '`%queue`', value: 'Reveals queue'},
+
     async execute(client, message, args, Discord) {
 
         if(!message.member.voice.channel) {

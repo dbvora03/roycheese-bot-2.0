@@ -4,6 +4,8 @@ const Discord = require('discord.js')
 module.exports = {
     name: 'stop',
     description: 'stop track',
+    help:{name: '`%stop`', value: 'Stops queue'},
+
     async execute(client, message, args, Discord) {
 
         let queue = await client.DisTube.getQueue(message)

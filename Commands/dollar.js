@@ -5,6 +5,8 @@ const Discord = require("discord.js")
 module.exports = {
     name: 'dollar',
     description: 'adds dollar to username',
+    help:{name: '`%dollar <@user>`', value: 'Adds a dollar to the user\'s bank'},
+
     async execute (client, message, args, Discord) {
 
         let parsedUser;
