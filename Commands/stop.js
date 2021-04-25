@@ -4,7 +4,7 @@ const Discord = require('discord.js')
 module.exports = {
     name: 'stop',
     description: 'stop track',
-    async execute(message, args, client) {
+    async execute(client, message, args, Discord) {
 
         let queue = await client.DisTube.getQueue(message)
         let newEmbed;
@@ -17,6 +17,8 @@ module.exports = {
             .setTitle(`Stopped queue`)
             .setFooter('xoxo Roycheese bot')
         } else {
+
+   
             newEmbed = new Discord.MessageEmbed()
             .setColor('#dd5d5d')
             .setTitle(`There is no music playing`)

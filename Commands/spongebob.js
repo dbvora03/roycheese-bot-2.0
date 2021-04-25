@@ -5,7 +5,7 @@ const axios = require('axios')
 module.exports = {
     name: 'spongebob',
     description: 'mocking spongebob meme',
-    async execute (client, message, args) {
+    async execute (client, message, args, Discord) {
 
         const newEmbed = new Discord.MessageEmbed()
         .setColor('#dd5d5d')

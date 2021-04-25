@@ -5,7 +5,7 @@ const Discord = require("discord.js")
 module.exports = {
     name: 'dollar',
     description: 'adds dollar to username',
-    async execute (client, discord, message, args) {
+    async execute (client, message, args, Discord) {
 
         let parsedUser;
 

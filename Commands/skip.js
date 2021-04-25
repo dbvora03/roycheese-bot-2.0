@@ -4,7 +4,7 @@ const Discord = require('discord.js')
 module.exports = {
     name: 'skip',
     description: 'skip',
-    async execute(message, args, client) {
+    async execute(client, message, args, Discord) {
 
         if(!message.member.voice.channel) {
             return message.channel.send('Join a voice channel or something :neutral_face:')

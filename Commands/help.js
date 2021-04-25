@@ -1,7 +1,7 @@
 module.exports = {
     name: 'help',
     description: "this is the help command",
-    execute(message, args, Discord) {
+    execute(client, message, args, Discord) {
         const newEmbed = new Discord.MessageEmbed()
                                     .setColor('#dd5d5d')
                                     .setTitle("Here are a list of commands I can do:")

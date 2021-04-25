@@ -5,7 +5,7 @@ const Discord = require("discord.js")
 module.exports = {
     name: 'count',
     description: 'checks count',
-    async execute (client, discord, message, args) {
+    async execute (client, message, args, Discord) {
 
         let parsedUser;
 

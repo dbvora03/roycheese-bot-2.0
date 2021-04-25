@@ -5,7 +5,7 @@ const replies = require('../Data/replies.json');
 module.exports = {
     name: '8ball',
     description: "this is the help command",
-    execute(message, args, Discord) {
+    execute(client, message, args, Discord) {
         if(!args[0]) return message.reply("Please ask a full question");
 
         let reply_instance = replies[Math.floor(Math.random() * replies.length)]

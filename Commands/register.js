@@ -3,7 +3,7 @@ const ProfileModels = require('../Models/profileSchema')
 module.exports = {
     name: 'register',
     description: 'registers user for counter ',
-    execute (client, discord, message) {
+    execute (client, message, args, Discord) {
 
         ProfileModels.find({userID: message.member.id, serverID: message.member.guild.id }).then(user=> {
 
