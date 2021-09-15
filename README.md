@@ -21,8 +21,6 @@ Want to install the code on your own machine?
 3. create an `.env` file and add the following variables:
 ```
 BOT_TOKEN=<discordjs token>
-SECRET_WORD=<word1>
-SECRET_WORD2=<word2>
 MONGO_URI=<mongouri>
 ```
 4. run `nodemon index.js` to start 
